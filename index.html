@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Zadanie 26</title>
+</head>
+<body>
+
+<script>
+let tab1 = [7,3,1,6,9,5,4,10,2,2]
+
+document.write("5 komórka: " + tab1[4] + "<br>")
+
+tab1[6] = 12
+
+let tab2 = []
+
+for(let i=0; i<tab1.length; i++){
+    tab2[i] = tab1[i]
+}
+
+let tab3 = []
+
+for(let i=0; i<tab1.length; i++){
+    tab3[i] = tab1[i] + tab2[i]
+}
+
+for(let i=0; i<tab1.length; i++){
+    tab2[i] = tab1[tab1.length-1-i]
+}
+
+let liczby = []
+
+for(let i=0; i<5; i++){
+    liczby[i] = Number(prompt("Podaj liczbę"))
+}
+
+let min = liczby[0]
+let max = liczby[0]
+let suma = 0
+let ile3 = 0
+
+for(let i=0; i<liczby.length; i++){
+    if(liczby[i] < min) min = liczby[i]
+    if(liczby[i] > max) max = liczby[i]
+    suma = suma + liczby[i]
+    if(liczby[i] == 3) ile3++
+}
+
+let srednia = suma / liczby.length
+
+document.write("min: " + min + "<br>")
+document.write("max: " + max + "<br>")
+document.write("średnia: " + srednia + "<br>")
+document.write("ile 3: " + ile3 + "<br>")
+
+liczby.sort(function(a,b){return a-b})
+
+document.write("posortowane: " + liczby + "<br>")
+
+let mediana = liczby[Math.floor(liczby.length/2)]
+document.write("mediana: " + mediana + "<br>")
+
+document.write("3 najmniejsze: " + liczby[0] + ", " + liczby[1] + ", " + liczby[2] + "<br>")
+document.write("3 największe: " + liczby[liczby.length-1] + ", " + liczby[liczby.length-2] + ", " + liczby[liczby.length-3] + "<br>")
+
+for(let i=0; i<liczby.length; i++){
+    liczby[i] = liczby[i] * liczby[i]
+}
+
+let parzyste = 0
+let nieparzyste = 0
+let podzielne3 = 0
+
+for(let i=0; i<liczby.length; i++){
+    if(liczby[i] % 2 == 0) parzyste++
+    else nieparzyste++
+
+    if(liczby[i] % 3 == 0) podzielne3++
+}
+
+document.write("parzyste: " + parzyste + "<br>")
+document.write("nieparzyste: " + nieparzyste + "<br>")
+document.write("podzielne przez 3: " + podzielne3 + "<br>")
+
+let slowo = prompt("Podaj 10-literowe słowo")
+let litery = []
+
+for(let i=0; i<10; i++){
+    litery[i] = slowo[i]
+}
+
+for(let i=0; i<litery.length; i++){
+    if(litery[i] == litery[i].toUpperCase()){
+        litery[i] = litery[i].toLowerCase()
+    } else {
+        litery[i] = litery[i].toUpperCase()
+    }
+}
+
+document.write("zamienione litery: " + litery + "<br>")
+
+let A = []
+
+for(let i=0; i<100; i++){
+    A[i] = Math.floor(Math.random() * 20)
+}
+
+let maxA = A[0]
+let ileMax = 0
+
+for(let i=0; i<100; i++){
+    if(A[i] > maxA) maxA = A[i]
+}
+
+for(let i=0; i<100; i++){
+    if(A[i] == maxA) ileMax++
+}
+
+document.write("największa: " + maxA + " ile razy: " + ileMax + "<br>")
+
+document.write("nieparzyste: ")
+for(let i=0; i<100; i++){
+    if(A[i] % 2 != 0) document.write(A[i] + " ")
+}
+
+document.write("<br>")
+
+document.write("indeksy nieparzyste: ")
+for(let i=1; i<100; i=i+2){
+    document.write(A[i] + " ")
+}
+
+</script>
+
+</body>
+</html>
